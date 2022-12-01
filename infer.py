@@ -15,7 +15,8 @@ chunks_dict = infer_tool.read_temp("./infer_tools/chunks_temp.json")
 
 
 def run_clip(svc_model, key, acc, use_pe, use_crepe, thre, use_gt_mel, add_noise_step, project_name='', f_name=None,
-             file_path=None, out_path=None):
+             file_path=None, out_path=None,**kwargs):
+    print(f'code version:2022-11-23 v2')
     use_pe = use_pe if hparams['audio_sample_rate'] == 24000 else False
     if file_path is None:
         raw_audio_path = f"./raw/{f_name}"
@@ -26,7 +27,7 @@ def run_clip(svc_model, key, acc, use_pe, use_crepe, thre, use_gt_mel, add_noise
     infer_tool.format_wav(raw_audio_path)
     wav_path = Path(raw_audio_path).with_suffix('.wav')
     global chunks_dict
-    audio, sr = librosa.load(wav_path, mono=True)
+    audio, sr = librosa.load(wav_path, mono=True,sr=None)
     wav_hash = infer_tool.get_md5(audio)
     if wav_hash in chunks_dict.keys():
         print("load chunks from temp")
@@ -60,14 +61,14 @@ def run_clip(svc_model, key, acc, use_pe, use_crepe, thre, use_gt_mel, add_noise
                                                         thre=thre, use_gt_mel=use_gt_mel, add_noise_step=add_noise_step)
         fix_audio = np.zeros(length)
         fix_audio[:] = np.mean(_audio)
-        fix_audio[:len(_audio)] = _audio
+        fix_audio[:len(_audio)] = _audio[0 if len(_audio)<len(fix_audio) else len(_audio)-len(fix_audio):]
         f0_tst.extend(_f0_tst)
         f0_pred.extend(_f0_pred)
         audio.extend(list(fix_audio))
         count += 1
     if out_path is None:
-        out_path = f'./results/{clean_name}_{key}key_{project_name}_{hparams["residual_channels"]}_{hparams["residual_layers"]}_{int(step / 1000)}k_{accelerate}x.wav'
-    soundfile.write(out_path, audio, hparams["audio_sample_rate"], 'PCM_16')
+        out_path = f'./results/{clean_name}_{key}key_{project_name}_{hparams["residual_channels"]}_{hparams["residual_layers"]}_{int(step / 1000)}k_{accelerate}x.{kwargs["format"]}'
+    soundfile.write(out_path, audio, hparams["audio_sample_rate"], 'PCM_16',format=out_path.split('.')[-1])
     return np.array(f0_tst), np.array(f0_pred), audio
 
 
@@ -83,7 +84,7 @@ if __name__ == '__main__':
     # 加速倍数
     accelerate = 20
     hubert_gpu = True
-
+    format='flac'
     step = int(model_path.split("_")[-1].split(".")[0])
 
     # 下面不动
@@ -95,4 +96,4 @@ if __name__ == '__main__':
         if "." not in f_name:
             f_name += ".wav"
         run_clip(model, key=tran, acc=accelerate, use_crepe=True, thre=0.05, use_pe=True, use_gt_mel=False,
-                 add_noise_step=500, f_name=f_name, project_name=project_name)
+                 add_noise_step=500, f_name=f_name, project_name=project_name, format=format)

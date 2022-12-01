@@ -59,7 +59,9 @@ def timeit(func):
 
 
 def format_wav(audio_path):
-    raw_audio, raw_sample_rate = librosa.load(audio_path, mono=True)
+    if Path(audio_path).suffix=='.wav':
+        return
+    raw_audio, raw_sample_rate = librosa.load(audio_path, mono=True,sr=None)
     soundfile.write(Path(audio_path).with_suffix(".wav"), raw_audio, raw_sample_rate)
 
 
@@ -119,7 +121,6 @@ class Svc:
         self.load_ckpt()
         self.model.cuda()
         hparams['hubert_gpu'] = hubert_gpu
-        hparams['use_uv'] = True
         self.hubert = Hubertencoder(hparams['hubert_path'])
         self.pe = PitchExtractor().cuda()
         utils.load_ckpt(self.pe, hparams['pe_ckpt'], 'model', strict=True)
@@ -151,7 +152,6 @@ class Svc:
         batch['mel2ph_pred'] = outputs['mel2ph']
         batch['f0_gt'] = denorm_f0(batch['f0'], batch['uv'], hparams)
         if use_pe:
-            hparams['use_uv'] = True
             batch['f0_pred'] = self.pe(outputs['mel_out'])['f0_denorm_pred'].detach()
         else:
             batch['f0_pred'] = outputs.get('f0_denorm')
@@ -229,7 +229,7 @@ class Svc:
 
         def get_align(mel, phone_encoded):
             mel2ph = np.zeros([mel.shape[0]], int)
-            start_frame = 1
+            start_frame = 0
             ph_durs = mel.shape[0] / phone_encoded.shape[0]
             if hparams['debug']:
                 print(mel.shape, phone_encoded.shape, mel.shape[0] / phone_encoded.shape[0])
