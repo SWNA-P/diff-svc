@@ -4,7 +4,7 @@ scikit-image
 ipython
 ipykernel
 pyloudnorm
-webrtcvad
+webrtcvad-wheels
 h5py
 einops
 pycwt

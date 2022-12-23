@@ -10,11 +10,11 @@ binarization_args:
   with_spk_embed: false
   with_wav: false
 binarizer_cls: preprocessing.SVCpre.SVCBinarizer
-binary_data_dir: data/binary/Tonio
+binary_data_dir: data/binary/atri
 check_val_every_n_epoch: 10
 choose_test_manually: false
 clip_grad_norm: 1
-config_path: databases/Tonio/config.yaml
+config_path: training/config.yaml
 content_cond_steps: []
 cwt_add_f0_loss: false
 cwt_hidden_size: 128
@@ -129,7 +129,7 @@ prenet_hidden_size: 256
 pretrain_fs_ckpt: ''
 processed_data_dir: xxx
 profile_infer: false
-raw_data_dir: data/raw/Tonio
+raw_data_dir: data/raw/atri
 ref_norm_layer: bn
 rel_pos: true
 reset_phone_dict: true
@@ -147,7 +147,7 @@ save_gt: false
 schedule_type: linear
 seed: 1234
 sort_by_len: true
-speaker_id: Tonio
+speaker_id: atri
 spec_max:
 - -1.5451143980026245
 - -1.5177826881408691
@@ -336,7 +336,7 @@ use_split_spk_id: false
 use_uv: false
 use_vec: false
 use_var_enc: false
-val_check_interval: 1000
+val_check_interval: 2000
 valid_num: 0
 valid_set_name: valid
 vocoder: network.vocoders.hifigan.HifiGAN
@@ -345,5 +345,5 @@ warmup_updates: 2000
 wav2spec_eps: 1e-6
 weight_decay: 0
 win_size: 512
-work_dir: databases/Tonio
+work_dir: checkpoints/atri
 no_fs2: true
