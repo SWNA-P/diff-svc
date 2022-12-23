@@ -1,7 +1,7 @@
 # Diff-SVC
 Singing Voice Conversion via diffusion model
 
-this just replaces parselmouth with world as a pitch estimator for inference (hopefully)
+I tried making this as user friendly as I could (WIP DONT MERGE WITH ANYTHING PLZ)
 
 ## updates:
 >2022.12.4 44.1kHz声码器开放申请，正式提供对44.1kHz的支持\
