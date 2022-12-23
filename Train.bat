@@ -1,3 +1,3 @@
-python run.py --config databases/Tonio/config.yaml --exp_name Tonio --reset
+python run.py --config checkpoints/YOUR NAME HERE/config.yaml --exp_name YOUR NAME HERE --reset
 pause
  
