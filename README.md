@@ -17,7 +17,7 @@ Original updates translated into english:
 ## updates:
 >2022.12.4 44.1kHz vocoder added, officially providing support for 44.1kHz models!
 >
-2022.11.28 Added no_fs2 option (turned on by default) to optimize some networks, improve training speed, reduce model size, and be effective for future newly trained models
+>2022.11.28 Added no_fs2 option (turned on by default) to optimize some networks, improve training speed, reduce model size, and be effective for future newly trained models
 >
 >2022.11.23 Fixed a major bug that caused the original gt audio used for inference to be shifted to a sample rate of 22.05kHz, we apologize for the impact, please be >sure to check your own test audio and use the updated code 
 >
