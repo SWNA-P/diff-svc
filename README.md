@@ -36,7 +36,7 @@ Original updates translated into english:
 >
 >2022.10.28 Migrate hubert's onnx inference to torch inference and organize inference logic. 
 >
-><font color=#FFA500>If originally downloaded onnx hubert model need to re-download and replace with pt model</font>, config don't need to change, currently can >implement 1060 6G memory direct GPU inference and pre-processing, please check the documentation for details. 
+><font color=#FFA500>If originally downloaded onnx hubert model need to re-download and replace with pt model</font>, config don't need to change, currently can implement 1060 6G memory direct GPU inference and pre-processing, please check the documentation for details. 
 >
 >2022.10.27 Update dependency files to remove redundant dependencies. 
 >
