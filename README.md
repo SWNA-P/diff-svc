@@ -19,13 +19,14 @@ Original updates translated into english:
 >
 >2022.11.28 Added no_fs2 option (turned on by default) to optimize some networks, improve training speed, reduce model size, and be effective for future newly trained models
 >
->2022.11.23 Fixed a major bug that caused the original gt audio used for inference to be shifted to a sample rate of 22.05kHz, we apologize for the impact, please be >sure to check your own test audio and use the updated code 
+>2022.11.23 Fixed a major bug that caused the original gt audio used for inference to be shifted to a sample rate of 22.05kHz, we apologize for the impact, please be sure to check your own test audio and use the updated code 
 >
 >2022.11.22 Fixed a lot of bugs, including a few that affected the reasoning effect significantly 
 >
 >2022.11.20 Add input and saving of most formats when reasoning without manual conversion with other software 
 >
->2022.11.13 Fix epoch/steps display issue for reading models after interrupts, add disk cache for f0 processing, add support file for real-time variant sound inference >
+>2022.11.13 Fix epoch/steps display issue for reading models after interrupts, add disk cache for f0 processing, add support file for real-time variant sound inference
+>
 >2022.11.11 Fix slice duration error, add 44.1khz adaptation, add support for contentvec
 >
 >2022.11.4 Adding Mel Spectrum Save Function 
@@ -40,11 +41,11 @@ Original updates translated into english:
 >
 >2022.10.27 Update dependency files to remove redundant dependencies. 
 >
->2022.10.27 Fixed a serious bug that had caused hubert to still use cpu inference on gpu servers, slowing down by a factor of 3-5, affecting preprocessing and >inference, not training 
+>2022.10.27 Fixed a serious bug that had caused hubert to still use cpu inference on gpu servers, slowing down by a factor of 3-5, affecting preprocessing and inference, not training 
 >
 >2022.10.26 Fix the problem that preprocessed data on windows does not work on linux, update some documents 
 >
->2022.10.25 Write detailed documentation for inference/training, modify and integrate some code, add support for audio in ogg format (no need to differentiate from >wav, just use it directly)
+>2022.10.25 Write detailed documentation for inference/training, modify and integrate some code, add support for audio in ogg format (no need to differentiate from wav, just use it directly)
 >
 >2022.10.24 Support for training on custom datasets with streamlined code 
 >
