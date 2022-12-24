@@ -16,38 +16,38 @@ The help of openvpi members in the development training process is also greatly 
 Original updates translated into english:
 ## updates:
 >2022.12.4 44.1kHz vocoder added, officially providing support for 44.1kHz models!
+>
 2022.11.28 Added no_fs2 option (turned on by default) to optimize some networks, improve training speed, reduce model size, and be effective for future newly trained models
-
-2022.11.23 Fixed a major bug that caused the original gt audio used for inference to be shifted to a sample rate of 22.05kHz, we apologize for the impact, please be sure to check your own test audio and use the updated code 
-
-2022.11.22 Fixed a lot of bugs, including a few that affected the reasoning effect significantly \
-
-2022.11.20 Add input and saving of most formats when reasoning without manual conversion with other software \
-
-2022.11.13 Fix epoch/steps display issue for reading models after interrupts, add disk cache for f0 processing, add support file for real-time variant sound inference \
-
-2022.11.11 Fix slice duration error, add 44.1khz adaptation, add support for contentvec\
-
-2022.11.4 Adding Mel Spectrum Save Function \
-
-2022.11.2 Integrate new vocoder code, update parselmouth algorithm \
-
-2022.10.29 Organize inference section, add long audio auto-slice feature. \
-
-2022.10.28 Migrate hubert's onnx inference to torch inference and organize inference logic. \
-
-<font color=#FFA500>If originally downloaded onnx hubert model need to re-download and replace with pt model</font>, config don't need to change, currently can implement 1060 6G memory direct GPU inference and pre-processing, please check the documentation for details. \
-
-2022.10.27 Update dependency files to remove redundant dependencies. \
-
-2022.10.27 Fixed a serious bug that had caused hubert to still use cpu inference on gpu servers, slowing down by a factor of 3-5, affecting preprocessing and inference, not training \
-
-2022.10.26 Fix the problem that preprocessed data on windows does not work on linux, update some documents \
-
-2022.10.25 Write detailed documentation for inference/training, modify and integrate some code, add support for audio in ogg format (no need to differentiate from wav, just use it directly)\
-
-2022.10.24 Support for training on custom datasets with streamlined code \
-
-2022.10.22 Complete training on opencpop dataset and create repository\
+>
+>2022.11.23 Fixed a major bug that caused the original gt audio used for inference to be shifted to a sample rate of 22.05kHz, we apologize for the impact, please be >sure to check your own test audio and use the updated code 
+>
+>2022.11.22 Fixed a lot of bugs, including a few that affected the reasoning effect significantly 
+>
+>2022.11.20 Add input and saving of most formats when reasoning without manual conversion with other software 
+>
+>2022.11.13 Fix epoch/steps display issue for reading models after interrupts, add disk cache for f0 processing, add support file for real-time variant sound inference >
+>2022.11.11 Fix slice duration error, add 44.1khz adaptation, add support for contentvec
+>
+>2022.11.4 Adding Mel Spectrum Save Function 
+>
+>2022.11.2 Integrate new vocoder code, update parselmouth algorithm 
+>
+>2022.10.29 Organize inference section, add long audio auto-slice feature. 
+>
+>2022.10.28 Migrate hubert's onnx inference to torch inference and organize inference logic. 
+>
+><font color=#FFA500>If originally downloaded onnx hubert model need to re-download and replace with pt model</font>, config don't need to change, currently can >implement 1060 6G memory direct GPU inference and pre-processing, please check the documentation for details. 
+>
+>2022.10.27 Update dependency files to remove redundant dependencies. 
+>
+>2022.10.27 Fixed a serious bug that had caused hubert to still use cpu inference on gpu servers, slowing down by a factor of 3-5, affecting preprocessing and >inference, not training 
+>
+>2022.10.26 Fix the problem that preprocessed data on windows does not work on linux, update some documents 
+>
+>2022.10.25 Write detailed documentation for inference/training, modify and integrate some code, add support for audio in ogg format (no need to differentiate from >wav, just use it directly)
+>
+>2022.10.24 Support for training on custom datasets with streamlined code 
+>
+>2022.10.22 Complete training on opencpop dataset and create repository
 
 
